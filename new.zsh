@@ -2,7 +2,17 @@
 emulate -LR zsh 
 
 
-function print_my_function(){
-    echo 'your input ' $1
+
+
+function countArguments() {
+    echo "${#@}"
 }
 
+wordlist="one two three four five"
+
+echo "normal substitution, no quotes:"
+countArguments $wordlist
+
+
+echo "substitution with quotes"
+countArguments "$wordlist"
